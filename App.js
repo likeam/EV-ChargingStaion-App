@@ -5,6 +5,8 @@ import * as SplashScreen from "expo-splash-screen";
 import LoginScreen from "./.expo/App/Secreen/LoginScreen/LoginScreen";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 import * as SecureStore from "expo-secure-store";
+import { NavigationContainer } from "@react-navigation/native";
+import TabNavigation from "./.expo/App/Navigations/TabNavigation";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -51,7 +53,9 @@ export default function App() {
       <View style={styles.container} onLayout={onLayoutRootView}>
         <SafeAreaView style={styles.container}>
           <SignedIn>
-            <Text>You are Signed in</Text>
+            <NavigationContainer>
+              <TabNavigation />
+            </NavigationContainer>
           </SignedIn>
           <SignedOut>
             <LoginScreen />
